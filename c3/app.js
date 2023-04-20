@@ -1,22 +1,34 @@
-const express = require('express');
-const morgan = require('morgan');
-const authHandler = require('./handlers/authHandler');
-const connectDataBase = require('./package/database/index');
+const express = require("express");
+const morgan = require("morgan");
+
+const auth = require("./handlers/authHandler");
+const movies = require("./handlers/movies");
+
+const db = require("./pkg/db/index");
 
 const app = express();
 
-// middlewares
+// midelwares
 app.use(express.json());
-app.use(morgan('dev'));
+app.use(morgan("dev"));
 
-// data baza
-connectDataBase.init();
+//data baza
+db.init();
 
-// ruti
-app.post('/api/v1/auth/create-account', authHandler.signUp);
-app.post('/api/v1/auth/login');
+/// ruti
+app.post("/api/v1/auth/create-account", auth.signup);
+app.post("/api/v1/auth/login", auth.login);
+
+app.get("/movies", auth.protect, movies.getAll);
+app.get("/movies/:id", auth.protect, movies.getOne);
+app.post("/movies", movies.create);
+app.put("/movies/:id", movies.replace);
+app.patch("/movies/:id", movies.update);
+app.delete("/movies/:id", movies.delete);
 
 app.listen(process.env.PORT, (err) => {
-  if(err) return console.log('Could not start service');
-  console.log(`Service started succesfully on port ${process.env.PORT}`);
+  if (err) {
+    return console.log("Could not start service");
+  }
+  console.log("service started successfully on port 10000");
 });
