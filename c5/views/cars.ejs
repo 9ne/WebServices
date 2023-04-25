@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/global.css">
+  <script src="https://kit.fontawesome.com/535c69aa83.js" crossorigin="anonymous"></script>
+  <title>Avtomobili</title>
+</head>
+<body>
+  <header class="header">
+    <h1 class="title"><%= titleOfPage %></h1>
+  </header>
+  <div class="wrapper">
+        <% if(cars.length === 0) { %>
+          <div>
+          <p>No Cars Found</p>
+        <% } else { %><% cars.forEach(car => { %>
+      <div class="flex-car">
+        <div class="flex-content">
+          <div>
+            <h2 class="brand">Brand: <%= car.brand %></h2>
+            <p>Type of car: <%= car.type %></p>
+            <p>Color of car: <%= car.color %></p>
+          </div>
+          <div>
+            <a href="/cars/<%= car._id %>" class="btn">Read More</a>
+          </div>
+        </div>
+        <div class="image">
+          <img src="/sliki/avtomobili/<%= car.image %>" alt="">
+        </div>
+      </div>
+    <% }) %><% } %>
+  </div>
+  <div class="wrapper-form">
+    <h2>Add New Car</h2>
+    <form action="/cars" class="form-flex" method="post" enctype="multipart/form-data">
+      <div class="flex-input">
+        <input type="text" name="brand" id="brand" placeholder="Type Brand">
+        <input type="text" name="type" id="type" placeholder="Type of car">
+      </div>
+      <div class="flex-input">
+        <input type="text" name="color" id="color" placeholder="Color of car">
+        <input type="text" name="fuelType" id="fuelType" placeholder="Fuel type of car">
+      </div>
+      <div class="flex-input">
+        <input type="text" name="year" id="year" placeholder="Year of the car">
+        <input type="text" name="engine" id="engine" placeholder="Type of engine">
+      </div>
+      <div class="flex-input">
+        <input type="text" name="transmission" id="transmission" placeholder="Type of transmission">
+        <input type="text" name="mileage" id="mileage" placeholder="Add mileage">
+      </div>
+      <div class="flex-input alone">
+        <label for="image" class="label-image">
+          Upload image
+          <i class="fa-solid fa-camera fa-2x"></i>
+        </label>
+        <input type="file" name="image" id="image">
+      </div>
+      <button type="submit" class="btn">Add new car</button>
+    </form>
+  </div>
+</body>
+</html>

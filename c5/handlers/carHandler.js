@@ -30,7 +30,7 @@ const upload = multer({
   fileFilter: multerFilter
 });
 
-exports.uploadCarsPhoto = upload.single('sliki');
+exports.uploadCarsPhoto = upload.single('image');
 
 exports.updateCar = async (req, res) => {
 
@@ -46,7 +46,7 @@ exports.updateCar = async (req, res) => {
 
     // input da ima type file
 
-    const cars = await carModel.findByIdAndUpdate(req.body.id, req.body, {
+    const cars = await carModel.findByIdAndUpdate(req.params.id, req.body, {
       new: true,
       runValidators: true
     });

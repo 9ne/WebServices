@@ -1,0 +1,191 @@
+* {
+  margin: 0;
+  padding: 0;
+  color: #333;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  background-color: #f4f4f4;
+}
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+header {
+  margin-bottom: 5rem;
+}
+
+.title {
+  text-align: center;
+  padding: 2rem;
+  margin: 0 auto;
+  background-color: #ccc;
+  color: #333;
+  box-shadow: 0px -1px 23px 6px rgba(0,0,0,0.24);
+  text-transform: uppercase;
+  font-weight: 200;
+}
+
+.wrapper-form {
+  padding: 5rem 2rem;
+}
+
+.wrapper-form h2 {
+  text-align: center;
+}
+
+
+/* FORM */
+/* ============================================================ */
+
+form {
+  margin-top: 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  gap: 2rem;
+}
+
+form .flex-input {
+  display: flex;
+  gap: 2rem;
+}
+
+input {
+  width: 20rem;
+  padding: 1rem 0.5rem 0.4rem 0.4rem;
+  font-size: 1rem;
+  border-radius: 5px;
+  border: none;
+  border-bottom: #ccc 1px solid;
+  outline: none;
+}
+
+
+.alone input {
+  border-bottom: none;
+  margin-left: 20%;
+  cursor: pointer;
+  position: absolute;
+  z-index: -1;
+  opacity: 0;
+}
+
+.label-image {
+  width: 10rem;
+  position: relative;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  border-radius: 5px;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+
+.label-image:hover {
+  background-color: #333;
+  color: #f4f4f4;
+}
+
+.label-image i {
+  transition: all 0.1s;
+}
+
+.label-image:hover i {
+  background-color: #333;
+  color: #f4f4f4;
+}
+
+.btn {
+  width: 10rem;
+  margin-top: -1rem;
+  border: none;
+  cursor: pointer;
+  padding: 1rem;
+  background-color: #f4f4f4;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  transition: all 0.3s;
+}
+
+.btn:hover {
+  background-color: #333;
+  color: #f4f4f4;
+}
+
+
+/* CARS */
+/* ============================================================ */
+
+.car {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.flex-car {
+  width: 1200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5rem;
+  text-align: center;
+  margin: 2rem;
+  box-shadow: 0px -1px 23px 6px rgba(0,0,0,0.24);
+  border-radius: 5px;
+}
+
+.brand {
+  margin-bottom: 1rem;
+}
+
+.flex-car p {
+  margin-bottom: 0.5rem;
+}
+
+.flex-car .btn {
+  text-decoration: none;
+  color: #333;
+  text-align: center;
+  margin-top: 2rem;
+
+}
+
+.flex-car .btn:hover {
+  color: #f4f4f4;
+}
+
+.flex-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.image img {
+  margin: 1rem;
+  height: 350px;
+  width: 600px;
+  border-radius: 5px;
+  object-fit: cover;
+}
+
+
+
+
+
+
