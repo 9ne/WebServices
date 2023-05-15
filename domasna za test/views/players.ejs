@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sport Players</title>
+</head>
+<body>
+  <header>
+    <h1><%= titleOfPage%></h1>
+    <hr>
+  </header>
+  <div>
+    <% if(players.length === 0) { %>
+      <div>
+        <p>No Players Found</p>
+      </div>
+    <% } else { %><% players.forEach(player => { %>
+      <div>
+        <p>Name of the player: <%= player.name %></p>
+        <p>Surname of the player: <%= player.surname%></p>
+      </div>
+      <div>
+        <a href="/players/<%= player._id %>">Read More</a>
+      </div>
+      <hr>
+    <% }) %><% } %>
+  </div>
+  <div>
+    <div>
+      <h2>Add New Player</h2>
+    </div>
+    <div>
+      <form action="/players" method="post">
+        <input type="text" name="name" id="name" placeholder="Name of the player">
+        <input type="text" name="surname" id="surname" placeholder="Surname of the player">
+        <input type="text" name="country" id="country" placeholder="Country of the player">
+        <input type="text" name="typeOfSport" id="typeOfSport" placeholder="Type of sport playing is playing">
+        <input type="text" name="height" id="height" placeholder="Height of the player">
+        <input type="text" name="year" id="year" placeholder="Year player was born">
+        <div>
+          <button type="submit">Add new player</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</body>
+</html>

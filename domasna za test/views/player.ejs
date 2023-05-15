@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sport Player</title>
+</head>
+<body>
+  <header>
+    <h1><%= titleOfPage%></h1>
+    <hr>
+  </header>
+  <div>
+      <% if(player.length === 0) {%>
+      <div>
+        <p>No Players Found</p>
+      <% } else { %>
+      </div>
+      <div>
+        <p>Name of the player: <%= player.name %></p>
+        <p>Surname of the player: <%= player.surname%></p>
+        <p>Origin of the player (Country): <%= player.country %></p>
+        <p>Type of sport of the player: <%= player.typeOfSport %></p>
+        <p>Height of the player: <%= player.height %></p>
+        <p>Player born in: <%= player.year %></p>
+      </div>
+      <% } %>
+  </div>
+  <hr>
+  <div>
+    <h2>Update or delete player</h2>
+    <div>
+      <form action="/players/<%= player._id %>" method="post">
+        <input type="text" name="name" id="name" placeholder="Name of the player">
+        <input type="text" name="surname" id="surname" placeholder="Surname of the player">
+        <input type="text" name="country" id="country" placeholder="Country of the player">
+        <input type="text" name="typeOfSport" id="typeOfSport" placeholder="Type of sport playing is playing">
+        <input type="text" name="height" id="height" placeholder="Height of the player">
+        <input type="text" name="year" id="year" placeholder="Year player was born">
+        <div>
+          <button type="submit">Update player</button>
+        </div>
+      </form>
+      <div>
+        <a href="/players/delete/<%= player._id %>">Delete Player</a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
